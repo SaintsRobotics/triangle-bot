@@ -22,6 +22,8 @@ task main()
 		move(moveVal, &leftMotorVal, &rightMotorVal, &backMotorVal);
 
 		float rotateVal = vexRT[Ch1];
+		// Square the rotateVal to decrease sensitivity
+		rotateVal *= abs(rotateVal) / LIMIT;
 		rotateVal = deadband(rotateVal, DEADBAND);
 		rotate(rotateVal, &leftMotorVal, &rightMotorVal, &backMotorVal);
 
